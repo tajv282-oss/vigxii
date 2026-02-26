@@ -1,0 +1,179 @@
+/* Founder Section */
+.about-founder {
+  background: var(--white);
+}
+
+.about-founder__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-founder__image-wrap {
+  overflow: hidden;
+}
+
+.about-founder__image-wrap img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.about-founder__image-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.about-founder__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.about-founder__content h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+.about-founder__content p {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+/* Philosophy Section */
+.about-philosophy {
+  background: var(--black);
+}
+
+.about-philosophy__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.about-philosophy__text {
+  font-size: 1rem;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 20px;
+}
+
+/* Why Choose Us Section */
+.about-why {
+  background: var(--off-white);
+}
+
+.about-why__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.about-why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.about-why__card {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+.about-why__card:hover {
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+}
+
+.about-why__icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.about-why__card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.about-why__card p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* Achievements Section */
+.about-achievements {
+  background: var(--black);
+}
+
+.about-achievements__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.about-achievements__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-achievements__number {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  color: var(--white);
+  font-weight: 300;
+}
+
+.about-achievements__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+@media (max-width: 968px) {
+  .about-founder__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-founder__image-wrap img {
+    height: 400px;
+  }
+
+  .about-why__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .about-achievements__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-achievements__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,108 @@
+.testimonial-slider {
+  background: var(--white);
+}
+
+.testimonial-slider__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.testimonial-slider__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-slider__arrow {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--soft-gray) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--black);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.testimonial-slider__arrow:hover {
+  border-color: var(--black) !important;
+}
+
+.testimonial-slider__content {
+  text-align: center;
+}
+
+.testimonial-slider__quote-mark {
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  line-height: 0.6;
+  color: var(--soft-gray);
+  margin-bottom: 16px;
+}
+
+.testimonial-slider__quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--black);
+  font-style: italic;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.testimonial-slider__name {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-top: 8px;
+}
+
+.testimonial-slider__event {
+  font-size: 0.8rem;
+  color: var(--mid-gray);
+  margin-top: 4px;
+}
+
+.testimonial-slider__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.testimonial-slider__dot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--soft-gray) !important;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.testimonial-slider__dot.active {
+  background: var(--black);
+  border-color: var(--black) !important;
+}
+
+@media (max-width: 768px) {
+  .testimonial-slider__wrap {
+    gap: 16px;
+  }
+
+  .testimonial-slider__arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}

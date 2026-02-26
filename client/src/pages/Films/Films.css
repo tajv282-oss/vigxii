@@ -1,0 +1,299 @@
+/* =============================================
+   FILMS PAGE — INSTAGRAM REEL FORMAT (9:16)
+   ============================================= */
+
+.films {
+  background: var(--black);
+}
+
+/* ── Reel Grid: 3 cols desktop, 2 tablet, 1 mobile ── */
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* ── Reel Card ── */
+.reel-card {
+  cursor: pointer;
+  will-change: transform;
+}
+
+/* 9:16 aspect ratio enforced via padding-top trick */
+.reel-card__aspect {
+  position: relative;
+  width: 100%;
+  padding-top: 177.78%; /* 16 / 9 × 100 */
+  overflow: hidden;
+  border-radius: 14px;
+  background: #0d0d0d;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.55);
+}
+
+.reel-card__thumb,
+.reel-card__video-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reel-card__video-preview {
+  opacity: 0;
+  transition:
+    opacity 0.35s ease,
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reel-card:hover .reel-card__video-preview {
+  opacity: 1;
+}
+
+.reel-card:hover .reel-card__thumb,
+.reel-card:hover .reel-card__video-preview {
+  transform: scale(1.05);
+}
+
+/* Play icon overlay */
+.reel-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.4s ease;
+  z-index: 2;
+}
+
+.reel-card:hover .reel-card__overlay {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.reel-card__play-icon {
+  font-size: 3.4rem;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.75);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.7));
+}
+
+.reel-card:hover .reel-card__play-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Bottom gradient info bar */
+.reel-card__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 48px 14px 16px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.4) 60%,
+    transparent 100%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+.reel-card__category {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.reel-card__title {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  color: #fff;
+  letter-spacing: 0.03em;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* =============================================
+   FULLSCREEN REEL MODAL
+   ============================================= */
+
+.reel-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.reel-modal__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.reel-modal__container:active {
+  cursor: grabbing;
+}
+
+.reel-modal__reel {
+  will-change: transform, opacity;
+}
+
+/* 9:16 modal: sized relative to viewport height */
+.reel-modal__aspect {
+  position: relative;
+  height: 86vh;
+  width: calc(86vh * 9 / 16);
+  max-width: 88vw;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
+}
+
+.reel-modal__aspect iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Gradient info in modal */
+.reel-modal__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 72px 20px 24px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.reel-modal__title {
+  font-size: 1.1rem !important;
+}
+
+/* Close button */
+.reel-modal__close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  font-size: 2.1rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.reel-modal__close:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Navigation arrows */
+.reel-modal__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.reel-modal__nav-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.reel-modal__nav-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.reel-modal__nav-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.reel-modal__counter {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .reels-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .reels-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .reel-modal__aspect {
+    height: 82vh;
+    width: calc(82vh * 9 / 16);
+    max-width: 94vw;
+    border-radius: 12px;
+  }
+
+  /* Hide side nav on mobile — swipe to navigate */
+  .reel-modal__nav {
+    display: none;
+  }
+
+  .reel-modal__close {
+    top: -46px;
+  }
+}
